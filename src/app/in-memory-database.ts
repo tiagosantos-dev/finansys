@@ -12,7 +12,6 @@ export class InMemoryDatabase extends InMemoryDbService{
 
         ];
 
-
         return {categories};
     }
 
