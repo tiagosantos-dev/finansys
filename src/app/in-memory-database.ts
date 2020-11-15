@@ -9,6 +9,7 @@ export class InMemoryDatabase extends InMemoryDbService{
             {id:3, name:"Lazer", description:"Cervejinha no final de semana"},
             {id:4, name:"Salário", description:"Recebimento do salario"},
             {id:5, name:"freelas", description:"Bicos autonomos"},
+            {id:6, name:"sssss", description:"ss ssssss"},
 
         ];
 

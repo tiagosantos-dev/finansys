@@ -14,6 +14,21 @@
     </div>
 </div>
 
+<!-- <div class="d-flex  justify-content-center" >
+    <div class="d-flex flex-wrap ">
+        <div *ngFor="let category  of categories" class="card mr-5 mb-5 border-secondary " style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{category.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{category.description}}</h6>
+            <p class="card-text"></p>
+            <a  [routerLink]="[category.id, 'edit']"  class="card-link">Editar</a>
+            <a  (click)="deleteCategory(category)" class="card-link">Excluir</a>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
 <table class="table table-hover">
     <thead>
         <tr class="bg-primary text-white">
@@ -22,13 +37,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><strong>Lazer</strong><br/>
-            <small>Cinema, Praia, Festa</small>
+        <tr *ngFor="let category  of categories">
+            <td><strong>{{category.name}}</strong><br/>
+            <small>{{category.description}}</small>
             </td>
             <td>
-                <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
-                <a  class="btn btn-outline-danger btn-sm">Excluir</a>
+                <a [routerLink]="[category.id, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+                <a  class="btn btn-outline-danger btn-sm" (click)="deleteCategory(category)">Excluir</a>
             </td>
         </tr>
         

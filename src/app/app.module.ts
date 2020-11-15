@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router'
+import {HttpClientModule  } from '@angular/common/http'
+
 import {  AppRoutingModule} from './app-routing.module';
 import { CategoriesModule } from './pages/categories/categories.module'
-import { RouterModule } from '@angular/router'
-
-import {HttpClientModule  } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { InMemoryDatabase} from './in-memory-database';
 import { AppComponent } from './app.component';

@@ -52,7 +52,7 @@ export class CategoryService {
   }
 
   public delete(id :number) : Observable<any>{
-    return this.http.delete(`${this.apiPath}/${id}`).pipe(catchError(this.handlerError))
+    return this.http.delete(`${this.apiPath}/${id}`).pipe(catchError(this.handlerError), map(()=> id))
 
   }
 
