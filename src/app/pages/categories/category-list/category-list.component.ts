@@ -36,8 +36,8 @@ export class CategoryListComponent implements OnInit {
 
 
   }
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
+  // ngOnDestroy(){
+  //   this.subscription.unsubscribe();
 
-  }
+  // }
 }
