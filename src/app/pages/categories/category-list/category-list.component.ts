@@ -31,11 +31,7 @@ export class CategoryListComponent implements OnInit {
     
 
   }
-  updateCategory(category){
-    console.log(category)
-
-
-  }
+ 
   // ngOnDestroy(){
   //   this.subscription.unsubscribe();
 

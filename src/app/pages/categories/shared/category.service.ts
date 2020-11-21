@@ -12,7 +12,7 @@ import { Category } from '../shared/category.model';
 
 export class CategoryService {
 
-  private apiPath :string = "api/categories";
+  private apiPath :string = "http://localhost:3000/categories";
 
   constructor(private http: HttpClient ) { }
 
@@ -45,9 +45,9 @@ export class CategoryService {
 
   }
 
-  public update(category : Category) : Observable<Category>{
-    const URL = `${this.apiPath}/ ${category.id}`;
-    return this.http.put(URL, category).pipe(catchError(this.handlerError), map(()=> category));
+  public update(category : Category) {
+    const URL = `http://localhost:3000/categories/${category.id}`;
+    return this.http.patch(URL, category).pipe(catchError(this.handlerError))
 
   }
 

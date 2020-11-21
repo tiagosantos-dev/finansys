@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "name": "Moradia",
+      "description": "Pagamentos de contas sasda Casa",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Saúde",
+      "description": "Remedios para dor de barriga"
+    },
+    {
+      "id": 3,
+      "name": "Lazer",
+      "description": "Cervejinha no final de semana"
+    },
+    {
+      "id": 4,
+      "name": "Salário",
+      "description": "Recebimento do salario"
+    },
+    {
+      "id": 5,
+      "name": "freelas",
+      "description": "Bicos autonomos"
+    },
+    {
+      "id": 6,
+      "name": "sssss",
+      "description": "ss ssssss"
+    }
+  ]
+}

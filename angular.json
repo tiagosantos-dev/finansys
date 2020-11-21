@@ -36,9 +36,6 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "./node_modules/toastr/build/toastr.min.js",
               "./node_modules/chart.js/dist/Chart.bundle.js"
-
-              
-
             ]
           },
           "configurations": {
@@ -132,6 +129,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "finasys"
+    }
+  },
+  "defaultProject": "finasys",
+  "cli": {
+    "analytics": "716ba28f-e8d7-471f-8f75-c1498d8834cb"
+  }
 }
