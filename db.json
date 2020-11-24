@@ -30,5 +30,26 @@
       "name": "sssss",
       "description": "ss ssssss"
     }
+  ],
+
+  "entries":[ 
+       {
+        "id" :1,
+        "name" :"Piscina",
+        "description" :"piscina plastico ",
+        "type" :"expense",
+        "amount" :"3999",
+        "date" :"12?/12/2020",
+        "paid" :false,
+        "category_id" :1,
+        "category" :{
+          "name": "Moradia",
+          "description": "Pagamentos de contas sasda Casa",
+          "id": 1
+          }
+        
+       }
+    
   ]
+
 }

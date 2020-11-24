@@ -1,0 +1,63 @@
+<nav class="mb-5">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" ><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" ><a> Lançamentos </a></li>
+
+    </ol>
+</nav>
+<div class="row mb-4">
+    <div class="col-md">
+        <h1 class="h2 border-left pl-2">Lançamentos</h1>
+    </div>
+    <div class="col-md">
+        <a class="btn btn-success float-right" routerLink="new"> + Novo Lançamento</a>
+    </div>
+</div>
+
+<!-- <div class="d-flex  justify-content-center" >
+    <div class="d-flex flex-wrap ">
+        <div *ngFor="let category  of categories" class="card mr-5 mb-5 border-secondary " style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{category.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{category.description}}</h6>
+            <p class="card-text"></p>
+            <a  [routerLink]="[category.id, 'edit']"  class="card-link">Editar</a>
+            <a  (click)="deleteCategory(category)" class="card-link">Excluir</a>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-primary text-white">
+            <th>Lançamento</th>
+            <th>Categoria</th>
+            <th class="text-right">Valor R$</th>
+            <th class="text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entry  of entries">
+            <td><strong>{{entry.name}}</strong><br/>
+                <small class="text-success">{{entry.date}}</small><br/>
+                <small *ngIf="entry.description">{{entry.description}}</small>
+            </td>
+            <td>
+                {{entry.category.name}}
+            </td>
+            <td class="text-right">
+               <strong [class.text-success]="entry.type == 'revenue'" [class.text-danger]="entry.type == 'expense'"> {{entry.amount}}</strong>
+                <br/>
+                <span class="badge badge-light" *ngIf="entry.paid"> Pago</span>
+                <span class="badge badge-light" *ngIf="!entry.paid"> Pedente</span>
+            </td>
+            <td class="text-center">
+                <a [routerLink]="[entry.id, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+                <a  class="btn btn-outline-danger btn-sm" (click)="deleteEntry(entry)">Excluir</a>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>

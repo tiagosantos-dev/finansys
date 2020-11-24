@@ -12,7 +12,7 @@ import { Entry } from './entry.model';
 
 export class EntryService {
 
-  private apiPath :string = "http://localhost:3000/categories";
+  private apiPath :string = "http://localhost:3000/entries";
 
   constructor(private http: HttpClient ) { }
 
@@ -28,8 +28,10 @@ export class EntryService {
 
   private jsonDataEntries(jsonData: any):Entry[]{
     const entries = [];
+    console.log(jsonData)
     jsonData.forEach(element => {
-        entries.push(element as Entry)
+      const entry =  Object.assign(new Entry() , element)
+      entries.push(entry)
     });
     return entries;
   }
@@ -46,7 +48,7 @@ export class EntryService {
   }
 
   public update(entry : Entry) {
-    const URL = `http://localhost:3000/categories/${entry.id}`;
+    const URL = `http://localhost:3000/entries/${entry.id}`;
     return this.http.patch(URL, entry).pipe(catchError(this.handlerError))
 
   }

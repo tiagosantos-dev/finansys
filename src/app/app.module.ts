@@ -8,6 +8,7 @@ import {  AppRoutingModule} from './app-routing.module';
 import { CategoriesModule } from './pages/categories/categories.module'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { AppComponent } from './app.component';
+import {  EntriesModule } from './pages/entries/entries.module'
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+   // EntriesModule,
     // ReactiveFormsModule,
   ],
   providers: [ ],

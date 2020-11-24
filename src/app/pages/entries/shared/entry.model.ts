@@ -17,13 +17,12 @@ export class Entry{
         return this.paid ? 'Pago' :'Pendente'
     
     }    
-
+    
+    static Types = {
+    expense : "Despesa",
+    renevue : "Receita"
+    }
 }
 
-
-export enum Types {
-    expense = "Despesa",
-    renevue = "Receita"
-}
 
 
