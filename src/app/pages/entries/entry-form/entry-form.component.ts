@@ -6,6 +6,9 @@ import { switchMap } from 'rxjs/operators';
 import { EntryService } from "../shared/entry.service";
 import {Entry  } from "../shared/entry.model";
 import toastr from 'toastr';
+import { Category } from '../../categories/shared/category.model';
+import { CategoryService } from '../../categories/shared/category.service';
+import { element } from 'protractor';
  
 @Component({
   selector: 'app-entry-form',
@@ -20,12 +23,36 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   serverErrorMessages: string[]= null;
   submittingForm: boolean = false;
   entry: any = {};
+  categories: Category[] =[];
+
+  ptBR = {
+    firstDayOfWeek: 0,
+    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+    dayNamesMin: ['Do', 'Se', 'Te', 'Qu', 'Qu', 'Se', 'Sa'],
+    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+      'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    today: 'Hoje',
+    clear: 'Limpar'
+  };
+
+  imaskConfig = {
+    mask: Number,
+    scale: 2,
+    thousandsSeparator: '',
+    padFractionalZeros:true,
+    normalizeZeros: true,
+    radix:','
+
+  }
 
   constructor(
     private entryService : EntryService,
     private route : ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private categoryService: CategoryService
 
   ) { }
 
@@ -33,6 +60,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
     this.setCurrentAction();
     this.buildEntryForm();
     this.loadEntry();
+    this.loadCategories();
    
   }
 
@@ -49,6 +77,19 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
     }else{
       this.updateEntry();
     }
+
+  }
+
+  get typeOptions() :Array<any>{
+    return Object.entries(Entry.Types).map((value, text)=>{
+      return{
+        text: text,
+        value: value
+
+      }
+
+    })
+
 
   }
 
@@ -105,10 +146,10 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
       id: [null],
       name: [null, [Validators.required, Validators.minLength(5)]],
       description: [null, [Validators.required, Validators.minLength(5)]],
-      type: [null, [Validators.required]],
+      type: ['expense', [Validators.required]],
       amount: [null, [Validators.required]],
       date: [null, [Validators.required]],
-      paid: [null, [Validators.required]],
+      paid: [true, [Validators.required]],
       categoryId: [null, [Validators.required]],
 
     });
@@ -127,6 +168,11 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
           }
     }
   }
+  private loadCategories(){
+    this.categoryService.getAll().subscribe((elements)=> this.categories = elements);
+
+  }
+
 
   private setPageTitle(){
     if(this.currentAction == 'new'){

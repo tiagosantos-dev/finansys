@@ -1,28 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import {HttpClientModule  } from '@angular/common/http'
 // import {ReactiveFormsModule } from '@angular/forms'
 
 import {  AppRoutingModule} from './app-routing.module';
-import { CategoriesModule } from './pages/categories/categories.module'
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+
 import { AppComponent } from './app.component';
+import { CategoriesModule } from './pages/categories/categories.module'
 import {  EntriesModule } from './pages/entries/entries.module'
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    CategoriesModule,
-    AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-   // EntriesModule,
-    // ReactiveFormsModule,
+    AppRoutingModule,
+    CategoriesModule,
+    EntriesModule,
+  
   ],
-  providers: [ ],
+  providers: [
+    { provide: LOCALE_ID, useValue:"pt-BR"}
+
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

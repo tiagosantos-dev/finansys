@@ -6,6 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { EntriesRoutingModule } from './entries-routing.module';
 import { EntryListComponent } from './entry-list/entry-list.component'
 import { EntryFormComponent } from './entry-form/entry-form.component'
+import { CalendarModule } from 'primeng/calendar';
+import { NgxMaskModule, IConfig} from 'ngx-mask'
+
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -14,10 +21,14 @@ import { EntryFormComponent } from './entry-form/entry-form.component'
 
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
     EntriesRoutingModule,
-    ReactiveFormsModule
+    NgxMaskModule.forRoot(maskConfig),
+    CalendarModule,
+  
+    
   ]
 })
 export class EntriesModule { }
