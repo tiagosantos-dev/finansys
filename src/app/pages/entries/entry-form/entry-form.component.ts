@@ -61,6 +61,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
     this.buildEntryForm();
     this.loadEntry();
     this.loadCategories();
+
    
   }
 
@@ -70,7 +71,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
 
   submitForm(){
     this.submittingForm = true;
-
+    
     if(this.currentAction == 'new'){
       this.createEntry();
 
@@ -151,6 +152,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
       date: [null, [Validators.required]],
       paid: [true, [Validators.required]],
       categoryId: [null, [Validators.required]],
+      // category: [null, [Validators.required]],
 
     });
   }
@@ -172,6 +174,8 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
     this.categoryService.getAll().subscribe((elements)=> this.categories = elements);
 
   }
+
+  
 
 
   private setPageTitle(){

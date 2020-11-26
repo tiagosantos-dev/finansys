@@ -53,9 +53,8 @@
                             placeholder="Valor">
 
                     </div>
-                    <div class="text-danger" *ngIf="entryForm.get('name').invalid && entryForm.get('name').touched">
-                        <div *ngIf="entryForm.get('name').errors.required">Dados Obrigatorios</div>
-                        <div *ngIf="entryForm.get('name').errors?.minlength">Nome deve ter ao menos 5 letras</div>
+                    <div class="text-danger" *ngIf="entryForm.get('amount').invalid && entryForm.get('amount').touched">
+                        <div *ngIf="entryForm.get('amount').errors.required">Dados Obrigatorios</div>
                     </div>
                 </div>
 
@@ -67,9 +66,8 @@
                     </p-calendar>
 
                 </div>
-                <div class="text-danger" *ngIf="entryForm.get('name').invalid && entryForm.get('name').touched">
-                    <div *ngIf="entryForm.get('name').errors.required">Dados Obrigatorios</div>
-                    <div *ngIf="entryForm.get('name').errors?.minlength">Nome deve ter ao menos 5 letras</div>
+                <div class="text-danger" *ngIf="entryForm.get('date').invalid && entryForm.get('date').touched">
+                    <div *ngIf="entryForm.get('date').errors.required">Dados Obrigatorios</div>
                 </div>
             </div>
 
@@ -97,33 +95,20 @@
                     </div>
                 </div>
 
-
-
-                <div class="form-row">
-                    <!--NAME-->
-                    <div class="form-group col-md-4">
-                        <!-- <label for="name">Nome</label> -->
-                        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
-                        <div class="text-danger" *ngIf="entryForm.get('name').invalid && entryForm.get('name').touched">
-                            <div *ngIf="entryForm.get('name').errors.required">Dados Obrigatorios</div>
-                            <div *ngIf="entryForm.get('name').errors?.minlength">Nome deve ter ao menos 5 letras</div>
+                <!--DESCRIPTION-->
+                <div class="form-group col-md-7">
+                    <label for="description">Descrição</label>
+                    <input type="text" class="form-control" id="description" formControlName="description"
+                        placeholder="Descrição">
+                    <div class="text-danger"
+                        *ngIf="entryForm.get('description').invalid && entryForm.get('description').touched">
+                        <div *ngIf="entryForm.get('description').errors.required">Campo Obrigatorio</div>
+                        <div *ngIf="entryForm.get('description').errors?.minlength">Deve ter pelo menos 5 caracteres
                         </div>
                     </div>
-                    <!--DESCRIPTION-->
-                    <div class="form-group col-md-8">
-                        <!-- <label for="description">Descrição</label> -->
-                        <input type="text" class="form-control" id="description" formControlName="description"
-                            placeholder="Descrição">
-                        <div class="text-danger"
-                            *ngIf="entryForm.get('description').invalid && entryForm.get('description').touched">
-                            <div *ngIf="entryForm.get('description').errors.required">Campo Obrigatorio</div>
-                            <div *ngIf="entryForm.get('description').errors?.minlength">Deve ter pelo menos 5 caracteres
-                            </div>
-                        </div>
-                        <!-- </div> -->
-                    </div>
-
+                    <!-- </div> -->
                 </div>
+               
             </div>
 
             <div class="alert alert-danger mt-4">

@@ -31,25 +31,56 @@
       "description": "ss ssssss"
     }
   ],
-
-  "entries":[ 
-       {
-        "id" :1,
-        "name" :"Piscina",
-        "description" :"piscina plastico ",
-        "type" :"expense",
-        "amount" :"3999",
-        "date" :"12?/12/2020",
-        "paid" :false,
-        "category_id" :1,
-        "category" :{
-          "name": "Moradia",
-          "description": "Pagamentos de contas sasda Casa",
-          "id": 1
-          }
-        
-       }
-    
+  "entries": [
+    {
+      "id": 1,
+      "name": "Piscina",
+      "description": "piscina plastico ",
+      "type": "expense",
+      "amount": "3999",
+      "date": "12?/12/2020",
+      "paid": false,
+      "category_id": 1,
+      "category": {
+        "name": "Moradia",
+        "description": "Pagamentos de contas sasda Casa",
+        "id": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "dfsdfsdfsdf",
+      "description": "333333333333",
+      "type": "expense",
+      "amount": "3333",
+      "date": "16/11/2020",
+      "paid": false,
+      "categoryId": "2"
+    },
+    {
+      "id": 3,
+      "name": "dfsdfsdfsdf",
+      "description": "eeeeeeeeeeeeeeeee",
+      "type": "renevue",
+      "amount": "2222",
+      "date": "25/11/2020",
+      "paid": false,
+      "categoryId": "1"
+    },
+    {
+      "id": 4,
+      "name": "dfsdfsdfsdf",
+      "description": "eeeeeeeeeeeeeeeee",
+      "type": "expense",
+      "amount": "2222",
+      "date": "25/11/2020",
+      "paid": false,
+      "categoryId": "2",
+      "category": {
+        "id": 2,
+        "name": "Saúde",
+        "description": "Remedios para dor de barriga"
+      }
+    }
   ]
-
 }
