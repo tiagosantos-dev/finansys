@@ -1,8 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { EntryService  } from '../shared/entry.service'
 import { Subscription } from 'rxjs'
 import { Entry } from '../shared/entry.model';
+
+import { faFolder } from '@fortawesome/free-solid-svg-icons';
+import {  FolderService} from '../../../components/folder/shared/folder.service'
 
 @Component({
   selector: 'app-entry-list',
@@ -12,11 +15,17 @@ import { Entry } from '../shared/entry.model';
 export class EntryListComponent implements OnInit {
 
   entries: Entry[] = [];
+  faFolder =faFolder;
   subscription : Subscription;
-  constructor(private service : EntryService) { }
+  createFolder : boolean = false;
+  folders = []
+  constructor(private service : EntryService, private folderService: FolderService) { }
 
-  ngOnInit(): void {
-    this.service.getAll().subscribe((e)=> this.entries = e);
+  ngOnInit( ): void {
+    this.folderService.getAll().subscribe((data)=> {
+      console.log(data)
+      this.folders = data} )
+    
  
   }
   
@@ -29,6 +38,12 @@ export class EntryListComponent implements OnInit {
       () => alert("Error ao tentar excluir") )
     }
     
+
+  }
+
+  onCreateFolder(){
+    this.createFolder = !this.createFolder
+
 
   }
  

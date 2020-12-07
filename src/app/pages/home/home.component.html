@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark  bg-secondary  mb-4" >
+<!-- <nav class="navbar navbar-expand-lg navbar-dark  bg-secondary  mb-4" >
     <a class="navbar-brand" routerLink="/" > RIQUINHO</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,78 @@
         </li>
       </ul>
     </div>
-  </nav>
-  <div class="container">
+  </nav> -->
+<div class="d-flex">
+  
+  <div class="col-md-2 sidebar-container" [class.sidebarOn]="sidebarOFF"> 
+     <div >
+    <div class="d-flex align-items-center title-container">
+      <h1 class="title ml-2" [class.off]="sidebarOFF">Marvim</h1>
+      
+    </div>
+    <nav class="sidebar">
+      <ul>
+        <li>
+          <a class="pl-2 link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <div [class.off]="sidebarOFF">Ínicio</div>
+            <fa-icon class="float-right pr-2" [icon]="faHome"></fa-icon>
+          </a>
+        </li>
+
+        <li>
+          <a class="pl-2 link " routerLink="/categories" routerLinkActive="active">
+            <div [class.off]="sidebarOFF">Categorias</div>
+            <fa-icon class="float-right pr-2" [icon]="faListAlt"></fa-icon>
+          </a>
+        </li>
+
+        <li>
+          <a class="pl-2 link" routerLink="/entries" routerLinkActive="active">
+            <div [class.off]="sidebarOFF">Entradas</div>
+            <fa-icon class="float-right pr-2" [icon]="faWallet"></fa-icon>
+          </a>
+        </li>
+        <li>
+          <a class="pl-2 link" routerLink="/Saidas" routerLinkActive="active">
+              <div [class.off]="sidebarOFF">Saidas</div>
+            <fa-icon class="float-right pr-2" [icon]="faHandHoldingUsd"></fa-icon>
+          </a>
+        </li>
+        <li>
+          <a class="pl-2 link" routerLink="/economies" routerLinkActive="active">
+              <div [class.off]="sidebarOFF">Poupança</div>
+            <fa-icon class="float-right pr-2" [icon]="faPiggyBank"></fa-icon>
+          </a>
+        </li>
+        <li>
+          <a class="pl-2 link" routerLink="/analysis" routerLinkActive="active">
+              <div [class.off]="sidebarOFF">Análise</div>
+            <fa-icon class="float-right pr-2" [icon]="faChartPie"></fa-icon>
+          </a>
+        </li>
+        <li>
+          <a class="pl-2 link" routerLink="/settings" routerLinkActive="active">
+              <div [class.off]="sidebarOFF">Ajustes</div>
+            <fa-icon class="float-right pr-2" [icon]="faCog"></fa-icon>
+          </a>
+        </li>
+        <li>
+          <a class="pl-2 link" routerLink="/logouf" routerLinkActive="active">
+              <div [class.off]="sidebarOFF">Logouf</div>
+            <fa-icon class="float-right pr-2" [icon]="faSignOutAlt"></fa-icon>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  </div>
+
+  <div class="col-md-10 routes ">
+    <a class="btnArrow float-left "  type="submit" (click)="onClickArrow()">
+      <fa-icon class="float-right "  [icon]="faBars"></fa-icon>
+    </a>
     <router-outlet></router-outlet>
   </div>
+
+</div>

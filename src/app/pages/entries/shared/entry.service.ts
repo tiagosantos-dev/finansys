@@ -43,22 +43,18 @@ export class EntryService {
   }
 
   public create(entry: Entry) : Observable<Entry>{
-    return this.categoryService.getById(entry.categoryId).pipe(mergeMap( category =>{
-      entry.category = category
+    
       return this.http.post(this.apiPath, entry).pipe(catchError(this.handlerError))
-
-    }))
-
+  
     
   }
 
   public update(entry : Entry) {
     const URL = `http://localhost:3000/entries/${entry.id}`;
 
-    return this.categoryService.getById(entry.categoryId).pipe(mergeMap( category =>{
-      entry.category = category
+    
     return this.http.patch(URL, entry).pipe(catchError(this.handlerError))
-  }))
+
 
   }
 
@@ -66,5 +62,12 @@ export class EntryService {
     return this.http.delete(`${this.apiPath}/${id}`).pipe(catchError(this.handlerError), map(()=> id))
 
   }
+
+  public getAllByFolder(id :number): Observable<any>{
+    const URL =`${this.apiPath}?folder_id=${id}`
+      return this.http.get(URL).pipe(catchError(this.handlerError))
+  }
+
+  public 
 
 }

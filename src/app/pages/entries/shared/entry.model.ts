@@ -11,6 +11,7 @@ export class Entry{
         public paid? :boolean,
         public categoryId? :number,
         public category? :Category,
+        public folder_id? :number,
         ){}
     
     get paidText() :string{

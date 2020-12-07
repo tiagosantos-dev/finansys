@@ -1,0 +1,7 @@
+<form class="form-inline d-flex align-items-center justify-content-center">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="inputfolder" class="sr-only">Nome da pasta</label>
+      <input type="text" class="form-control" id="inputfolder" placeholder="Nome da pasta" #inputFolder>
+    </div>
+    <button type="submit" class="btn btn-purp  mb-2" (click)="createPast(inputFolder.value)">Criar Pasta</button>
+</form>

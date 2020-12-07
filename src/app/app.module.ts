@@ -18,6 +18,18 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { httpInterceptorProviders } from './http-interceptors/index'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { FolderFormComponent } from './components/folder-form/folder-form.component'
+import { FolderService } from './components/folder/shared/folder.service';
+import { EconomiesComponent } from './pages/economies/economies.component';
+import { AnalysisComponent } from './pages/analysis/analysis.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { EconomiesModule } from './pages/economies/economies.module';
+import { SettingsModule } from './pages/settings/settings.module';
+import { AnalysisModule } from './pages/analysis/analysis.module';
+import { EconomiesRoutingModule } from './pages/economies/economies.routing.module';
+import { InitialComponent } from './pages/initial/initial.component';
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -25,22 +37,33 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     AuthenticationComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    // FolderFormComponent,
+    EconomiesComponent,
+    AnalysisComponent,
+    SettingsComponent,
+    InitialComponent,
+  
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    EconomiesRoutingModule,
     CategoriesModule,
     EntriesModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
+    EconomiesModule,
+    SettingsModule,
+    AnalysisModule,
+    ChartModule
   
   ],
   providers: [
     { provide: LOCALE_ID, useValue:"pt-BR"},
-    httpInterceptorProviders
-
+    FolderService,
    ],
   bootstrap: [AppComponent]
 })

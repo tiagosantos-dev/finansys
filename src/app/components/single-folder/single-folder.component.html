@@ -1,0 +1,97 @@
+<nav class="mb-5">
+  <ol class="breadcrumb mt-5">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active"><a routerLink="/entries"> Lançamentos </a></li>
+    <li class="breadcrumb-item active"><a> {{nameFolder}} </a></li>
+  </ol>
+</nav>
+<div class="row mb-4">
+  <div class="col-md">
+    <h1 class="h2 border-left pl-2">{{nameFolder}}</h1>
+  </div>
+  <div class="col-md">
+    <a class="btn btn-purp float-right" [routerLink]="['/entries/new' , folder_id]"> + Nova Entrada</a>
+  </div>
+</div>
+<div>
+  <section>
+    <div class="row">
+      <div class="col-12 mt-3 mb-1">
+        <h4 class="text-uppercase">Sobre {{nameFolder}}</h4>
+        <p>Controle seu dinheiro &amp; seu bolso agradeçe</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-6 col-md-12">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                  <i class="icon-wallet success font-large-2 mr-2"></i>
+                </div>
+                <div class="media-body">
+                  <h4>Total até Hoje</h4>
+                  <span>Esse valor é referente a pasta {{nameFolder}} </span>
+                </div>
+                <div class="align-self-center">
+                  <h1>18,000</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                  <i class="icon-speech warning font-large-2 mr-2"></i>
+                </div>
+                <div class="media-body">
+                  <h4>Ultima Entrada</h4>
+                  <span>Controle financeiro já</span>
+                </div>
+                <div class="align-self-center">
+                  <h1>{{ lastEntry?.amount }}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="row align-middle container-entries">
+    <div *ngFor="let entry of entries" class="card cardd mb-3 mt-3 " style="width: 530px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <div class="ico-card">
+            <i>
+              <fa-icon [icon]="faDollarSign"></fa-icon>
+            </i>
+          </div>
+          <div style="background: linear-gradient(to right, #4e54c8, #8f94fb); width: 100%; height: 100%;">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{entry.name}}</h5>
+            <!-- <p class="card-text float-right">{{entry.paid}}</p> -->
+            <!-- <p class="card-text ">{{entry.category.name}}</p> -->
+            <span class="card-text float-right" *ngIf="entry.paid"> Pago</span>
+            <span class="card-text float-right" *ngIf="!entry.paid"> Pedente</span>
+            <p class="card-text">{{entry.description}}</p>
+            <h2 class="card-title float-right" *ngIf="entry.amount">R$ {{entry.amount}} </h2>
+            <p class="card-text "><small class="text-muted">{{entry.date}}</small></p>
+            <div class="d-flex">
+              <a class="btn btn-outline-dark mr-1" (click)="deleteEntry(entry)">Excluir</a>
+              <a class="btn btn-outline-dark" [routerLink]="['/entries/edit', entry.id]">Editar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

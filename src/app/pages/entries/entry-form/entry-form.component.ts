@@ -61,7 +61,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
     this.buildEntryForm();
     this.loadEntry();
     this.loadCategories();
-
+    console.log(this.route.snapshot.params["id"])
    
   }
 
@@ -153,6 +153,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
       paid: [true, [Validators.required]],
       categoryId: [null, [Validators.required]],
       // category: [null, [Validators.required]],
+      folder_id:[this.route.snapshot.params["id"]]
 
     });
   }

@@ -1,0 +1,132 @@
+.title-container{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+
+}
+.btnArrow{
+    /* width: 100%; */
+    color:#625df5 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f7f7f8;
+    position: relative;
+    right: 20px;
+    border-radius: 20%;
+    font-size: 1.5em;
+}
+.title{
+    font-size: 1.4em;
+    margin: 20px auto;
+    position: relative;
+    color: #303030;
+    transition: all .2s ease-in-out;
+
+}
+.sidebar-container{
+    transition: all .2s ease-in-out;
+    background-color: #f7f7f8;
+    height: 100vh; 
+}
+.link{
+    display: inline-block !important;
+    width: 100%;
+   
+}
+.link fa-icon{
+    font-size: 25px;
+
+}
+.sidebar ul {
+    text-decoration: none;
+    list-style: none;
+
+
+}
+
+
+.sidebar ul li a{
+    padding:5px 0px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.1em;
+    color:#21212199;
+    font-weight: 600;
+    transition: all .2s ease-in-out;
+    
+
+}
+
+.sidebar{
+    margin-top: 53px;
+
+}
+.sidebar ul li{
+    margin: 5px 0px;
+
+}
+
+/* Hover */
+.sidebar ul li a:hover{
+    /* background-color: #6161f126; */
+    background-color: hsla(242,21%,28%,0.1);
+
+    /* color: hsla(242,88.4%,66.3%,1); */
+    color:#212121;
+    border-radius: 7px;
+
+
+}
+/* Actvie */
+.active{
+    background-color: #6161f126;
+    color: #625df5 !important;
+    border-radius: 7px;
+}
+
+.sidebarOn{
+    transition: all .2s ease-in-out;
+    max-width: 70px;
+
+
+}
+.off{
+    display: none !important;
+
+}
+
+.routes{
+    max-width: 100% !important;
+    flex: auto;
+}
+
+
+
+@media(max-width: 768px){
+
+    .sidebar-container{
+        width: 10px;
+
+
+
+    }
+    .sidebar-container > div{
+        display: none;
+
+    }
+    .sidebarOn{
+        width: 70px;
+
+    }
+    .sidebarOn > div{
+        width: 70px;
+        display: inline-block;
+    }
+
+    .link{
+        width: auto;
+        font-size: 30px !important;
+    }
+}

@@ -1,0 +1,9 @@
+<a *ngFor="let folder of folders" class="btn folder " [routerLink]="['folder', folder.id]" [queryParams]="{'name': folder.name}">
+    <div class="card card-container" >
+        <div class="card-body cardd">
+        <h6 class="card-title">{{folder.name}}</h6>
+        <fa-icon class="icone-folder" [icon]="faFolder"></fa-icon>
+        <!-- <p class="card-text">dsdsd</p> -->
+        </div>
+    </div>
+</a>

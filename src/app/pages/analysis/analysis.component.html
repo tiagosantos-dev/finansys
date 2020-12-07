@@ -1,0 +1,20 @@
+<nav class="mb-5">
+    <ol class="breadcrumb mt-5">
+        <li class="breadcrumb-item" ><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" ><a> Analises </a></li>
+
+    </ol>
+</nav>
+<div class="row mb-4">
+    <div class="col-md">
+        <h1 class="h2 border-left pl-2">Analises</h1>
+    </div>
+    <div class="col-md">
+    </div>
+</div>
+<div class="container">
+    <div class="" style="width: 500px;">
+        <p-chart type="bar" [data]="data" ></p-chart>
+        <button type="button" pButton (click)="update($event)"></button> 
+    </div>
+</div>
